@@ -1,6 +1,7 @@
 const days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
 const months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "décembre"];
 
+const space = " "
 
 function date() {
     const hoursElm = document.getElementById("hours");
@@ -12,15 +13,15 @@ function date() {
 
     hoursElm.innerHTML = date.getHours();
 
-    let minutes = date.getMinutes();
+    var minutes = date.getMinutes();
     if (minutes < 10) {
-        minutes = `0${minutes}`;
+        minutes = "0" + minutes;
     }
     minutesElm.innerHTML = minutes;
 
-    let dayStr = days[date.getDay()];
+    var dayStr = days[date.getDay()];
     const monthStr = months[date.getMonth()];
-    const dateStr = `${dayStr} ${date.getDate()} ${monthStr} ${date.getFullYear()}`;
+    const dateStr = dayStr + space + date.getDate() + space + monthStr + space + date.getFullYear();
     dateElm.innerHTML = dateStr;
 }
 
