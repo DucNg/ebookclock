@@ -1,0 +1,13 @@
+{
+    "minVersion": 2,
+    "manifestVersion": 2,
+    "appVersion": "v0.1.0",
+    "waf": true,
+    "id": "com.ducng.clock",
+    "name": "Clock",
+    "author": "DucNg",
+    "description": "A simple clock application displaying time and date",
+    "repo": "https://github.com/DucNg/ebookclock",
+    "icon": "icon.png",
+    "entrypoint": "index.html"
+}

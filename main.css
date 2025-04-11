@@ -1,0 +1,26 @@
+html {
+    font-family: Helvetica, sans-serif;
+}
+
+
+.icon-wrapper {
+    width: 700px;
+    margin: 200px auto 0;
+}
+
+.clock {
+    font-size: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.date {
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    padding: 10px;
+}
+
+#hours, #separator, #minutes {
+    font-size: 200px;
+}
