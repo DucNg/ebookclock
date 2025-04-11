@@ -8,6 +8,10 @@ html {
     margin: 200px auto 0;
 }
 
+#icon {
+    width: 700px;
+}
+
 .clock {
     font-size: 0;
     width: 100%;

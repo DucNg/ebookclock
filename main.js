@@ -1,5 +1,5 @@
-const days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"]
-const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"]
+const days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+const months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "décembre"];
 
 
 function date() {
@@ -14,16 +14,15 @@ function date() {
 
     let minutes = date.getMinutes();
     if (minutes < 10) {
-        minutes = `0${minutes}`
+        minutes = `0${minutes}`;
     }
     minutesElm.innerHTML = minutes;
 
-    let dayStr = new Intl.DateTimeFormat("fr-FR", {weekday: "long"}).format(date);
-    dayStr = dayStr[0].toUpperCase() + dayStr.slice(1);
-    const monthStr = new Intl.DateTimeFormat("fr-FR", {month: "long"}).format(date);
+    let dayStr = days[date.getDay()];
+    const monthStr = months[date.getMonth()];
     const dateStr = `${dayStr} ${date.getDate()} ${monthStr} ${date.getFullYear()}`;
     dateElm.innerHTML = dateStr;
 }
 
-date()
-setInterval(date, 1000);
+date();
+setInterval(date, 60000);
