@@ -1,8 +1,3 @@
-// Kindle time is set to UTC+0 but the Kindle UI somewhat apply a timezone over that
-// To get the correct time in JS, we need to manually apply timezone
-const TIMEZONE = 2;
-const timezoneInMilliseconds = TIMEZONE * 3600 * 1000;
-
 const appName = "com.ducng.clock"
 
 const days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
@@ -21,8 +16,7 @@ function pillowRun(fkt, callback) {
 }
 
 function setDate() {
-    // Manually apply timezone
-    const date = new Date(Date.now() + timezoneInMilliseconds);
+    const date = new Date();
 
     hoursElm.innerHTML = date.getHours();
 
