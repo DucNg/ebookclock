@@ -3,6 +3,8 @@
 const TIMEZONE = 2;
 const timezoneInMilliseconds = TIMEZONE * 3600 * 1000;
 
+const appName = "com.ducng.clock"
+
 const days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
 const months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "décembre"];
 
@@ -12,6 +14,11 @@ const hoursElm = document.getElementById("hours");
 const minutesElm = document.getElementById("minutes");
 
 const dateElm = document.getElementById("date");
+
+// Small helper function to call runAsDefaultStatusBar
+function pillowRun(fkt, callback) {
+    pillowHelper.Run('default_status_bar', appName, fkt, callback);
+}
 
 function setDate() {
     // Manually apply timezone
@@ -31,5 +38,14 @@ function setDate() {
     dateElm.innerHTML = dateStr;
 }
 
-setDate();
-setInterval(setDate, 60000);
+try {
+    setDate();
+    setInterval(setDate, 60000);
+    
+    // pillowRun("nativeBridge.hideMe();");
+} catch (e) {
+    const errorDiv = document.createElement("div");
+
+    errorDiv.innerHTML = e;
+    document.body.appendChild(errorDiv);
+}
