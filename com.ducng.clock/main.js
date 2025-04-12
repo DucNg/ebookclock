@@ -1,15 +1,21 @@
+// Kindle time is set to UTC+0 but the Kindle UI somewhat apply a timezone over that
+// To get the correct time in JS, we need to manually apply timezone
+const TIMEZONE = 2;
+const timezoneInMilliseconds = TIMEZONE * 3600 * 1000;
+
 const days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
 const months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "décembre"];
 
 const space = " "
 
-function date() {
-    const hoursElm = document.getElementById("hours");
-    const minutesElm = document.getElementById("minutes");
+const hoursElm = document.getElementById("hours");
+const minutesElm = document.getElementById("minutes");
 
-    const dateElm = document.getElementById("date");
+const dateElm = document.getElementById("date");
 
-    const date = new Date();
+function setDate() {
+    // Manually apply timezone
+    const date = new Date(Date.now() + timezoneInMilliseconds);
 
     hoursElm.innerHTML = date.getHours();
 
@@ -25,5 +31,5 @@ function date() {
     dateElm.innerHTML = dateStr;
 }
 
-date();
-setInterval(date, 60000);
+setDate();
+setInterval(setDate, 60000);
